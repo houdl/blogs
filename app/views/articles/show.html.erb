@@ -7,7 +7,7 @@
   <strong>Author:</strong>
   <%= @article.user.email %>
 </p>
- 
+    
 <p>
   <strong>Text:</strong>
   <%= @article.text %>
@@ -25,6 +25,7 @@
 
 <h2>Add a comment:</h2>
 <%=render "comments/form"%>
+
 
  <%= link_to 'Back', articles_path %>
   <%= link_to 'Edit', edit_article_path(@article) %>
