@@ -3,7 +3,7 @@
     	<%= link_to 'My Blog', articles_path %>
       <%= current_user.email %> |
       <%= link_to '用户信息', edit_user_registration_path %> |
-      <%= link_to '退出登录', destroy_user_session_path, :method => :delete %> |
+      <%= link_to '退出登录', destroy_user_session_path, method: :delete %> |
     </div>
     <% end -%>
     <% unless user_signed_in? -%>
