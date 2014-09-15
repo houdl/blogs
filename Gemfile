@@ -41,5 +41,8 @@ gem 'spring',        group: :development
 gem 'kaminari'
 gem 'devise'
 gem 'carrierwave'
+
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap_form'
+
+gem 'autoprefixer-rails'
