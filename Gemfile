@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'kaminari'
+gem 'kaminari-bootstrap', '~>3.0.1'
 gem 'devise'
 gem 'carrierwave'
 
