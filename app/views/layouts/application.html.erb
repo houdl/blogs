@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
- 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
 
-<div id="welcome">
-<%= render :template=> "welcome/form" %>
-</div>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'html5' %>
+    <%= javascript_include_tag 'respond' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <div id="welcome">
+      <%= render :template=> "welcome/form" %>
+    </div>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>

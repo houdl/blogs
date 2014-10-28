@@ -1,18 +1,18 @@
 class ArticlesController < ApplicationController
   def new
-     if user_signed_in?
+     # if user_signed_in?
        @article = Article.new 
-     end
-     unless user_signed_in?
-       redirect_to  new_user_session_path  
-     end
+     # end
+     # unless user_signed_in?
+       # redirect_to  new_user_session_path  
+     # end
 
   end
 
   def index
-    @articles = Article.all.page(params[:page]).per(3) 
-
+    @articles = Article.all.page(params[:page]).per(3)
   end
+
   def create
     	@article = current_user.articles.new(article_params)
 
