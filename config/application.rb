@@ -8,6 +8,18 @@ Bundler.require(*Rails.groups)
 
 module Blogs
   class Application < Rails::Application
+    config.action_mailer.default_url_options = { :host => "localhost:3000" }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: "smtp.qq.com",
+      port: 25,
+      domain: "qq.com",
+      authentication: "login",
+      enable_starttls_auto: true,
+      user_name:  "hou_delin@qq.com",
+      password: "h1990h0730"
+    }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
