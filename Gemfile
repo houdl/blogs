@@ -49,3 +49,6 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap_form'
 
 gem 'autoprefixer-rails'
+
+gem 'rails-i18n', '~> 4.0.0'
+gem 'devise-i18n'
