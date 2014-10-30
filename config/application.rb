@@ -17,7 +17,7 @@ module Blogs
       authentication: "login",
       enable_starttls_auto: true,
       user_name:  "hou_delin@qq.com",
-      password: "h1990h0730"
+      password: "xxxxxxx"
     }
 
     # Settings in config/environments/* take precedence over those specified here.
