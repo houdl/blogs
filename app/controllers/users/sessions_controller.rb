@@ -32,5 +32,33 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  private
+
+  # Check if there is no signed in user before doing the sign out.
+  # If there is no signed in user, it will set the flash message and
+  # to the after_sign_out path.
+  def verify_signed_out_user
+    if all_signed_out?
+      set_flash_message :notice, :already_signed_out if
+      is_flashing_format?
+
+      respond_to_on_destroy
+    end
+  end
+
+  def all_signed_out?
+    users = Devise.mappings.keys.map { |s| warden.user(scope: s, run_callbacks: false) }
+
+    users.all?(&:blank?)
+  end
+
+  def respond_to_on_destroy
+    # We actually need to hardcode this as Rails default responder doesn't
+    # support returning empty response on GET request
+    respond_to do |format|
+      format.all { head :no_content }
+      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name) }
+    end
+  end
 
 end
