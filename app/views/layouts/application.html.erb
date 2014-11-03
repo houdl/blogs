@@ -6,9 +6,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div class="container">
     <div id="welcome">
       <%= render :template=> "welcome/form" %>
     </div>
     <%= yield %>
+    </div>
   </body>
 </html>

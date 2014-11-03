@@ -38,17 +38,26 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#分页
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~>3.0.1'
 
 gem 'devise'
 
+#图片上传
 gem 'carrierwave'
 
+#使用bootstrap样式
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap_form'
+#简单样式
+gem 'simple_form'
 
 gem 'autoprefixer-rails'
 
+#语言
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
+
+#搜索
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
