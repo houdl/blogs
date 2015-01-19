@@ -38,6 +38,9 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'pry'
+gem 'pry-nav'
+
 #分页
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~>3.0.1'
@@ -46,6 +49,7 @@ gem 'devise'
 
 #图片上传
 gem 'carrierwave'
+gem 'mini_magick', '~> 3.8.0', require: true
 
 #使用bootstrap样式
 gem 'bootstrap-sass', '~> 3.1.1'

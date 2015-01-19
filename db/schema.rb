@@ -11,25 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911035704) do
+ActiveRecord::Schema.define(version: 20140910070343) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
     t.text     "text"
+    t.string   "avatar"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "avatar"
   end
-
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "comments", force: true do |t|
     t.text     "body"
     t.integer  "article_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
@@ -37,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140911035704) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
+    t.string   "avatar"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -48,7 +47,6 @@ ActiveRecord::Schema.define(version: 20140911035704) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

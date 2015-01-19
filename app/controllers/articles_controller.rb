@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   def new
-     # if user_signed_in?
-       @article = Article.new 
-     # end
-     # unless user_signed_in?
-       # redirect_to  new_user_session_path  
-     # end
+    # if user_signed_in?
+    @article = Article.new 
+    # end
+    # unless user_signed_in?
+    # redirect_to  new_user_session_path  
+    # end
 
   end
 
@@ -14,14 +14,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    	@article = current_user.articles.new(article_params)
+    @article = current_user.articles.new(article_params)
 
-      if  @article.save
-        redirect_to @article
-      else
-        render 'new'
-      end
-   # render plain: params[:article].inspect
+    if  @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
+    # render plain: params[:article].inspect
   end
 
   def show
@@ -34,27 +34,27 @@ class ArticlesController < ApplicationController
 
   end
   def update
-     @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
 
-     if @article.update(article_params)
-        redirect_to @article 
-      else 
-        render 'edit'
-      end
+    if @article.update(article_params)
+      redirect_to @article 
+    else 
+      render 'edit'
+    end
 
   end
 
-  def  destroy
-     @article = Article.find(params[:id])
-     @article.destroy
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
 
-     redirect_to  articles_path
+    redirect_to  articles_path
 
   end
 
   private
-    def article_params
-    	  params.require(:article).permit(:title, :text, :avatar, :avatar_cache)
-    end
 
+  def article_params
+    params.require(:article).permit(:title, :text, :avatar, :avatar_cache)
+  end
 end

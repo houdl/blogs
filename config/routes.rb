@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
   
+  resources :user do
+    collection do
+    end
+  end
+
   devise_for :users, path: "users", :controllers =>{
     :sessions => "users/sessions",
     :passwords => "users/passwords",
@@ -9,9 +15,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-  
-  get 'hehe', to: 'welcome#index'
-  #get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

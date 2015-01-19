@@ -1,0 +1,10 @@
+<h1>User#index</h1>
+<%= current_user.id %>
+<%= current_user.email %>
+<%= image_tag(current_user.avatar_url) %>
+
+<%= form_for current_user, :html => {:multipart => true,}, method: :put do |f| %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+  <%= f.submit '提交' %>
+<% end %>
