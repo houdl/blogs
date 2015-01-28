@@ -1,7 +1,7 @@
 <div class="container">
   <h1>我的文章</h1>
 
-  <%= link_to '新建文章', new_article_path %>
+  <%= link_to '新建文章', new_article_path, 'data-no-turbolink' => true %>
   <table class="table table-hover">
     <tr>
       <th>标题</th>
@@ -17,7 +17,7 @@
         <td><%= article.user.email %></td>
         <td><%= sanitize(article.text) %></td>
         <td><%= article.created_at.to_long %></td>
-        <td><%= link_to '编辑', edit_article_path(article) %>
+        <td><%= link_to '编辑', edit_article_path(article) , 'data-no-turbolink' => true %>
           <%= link_to '删除', article_path(article),method: :delete, data: {confirm: '你确定要删除吗? '} %></td>
       </tr>
     <% end %>

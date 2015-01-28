@@ -65,3 +65,6 @@ gem 'devise-i18n'
 
 #搜索
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+
+#福文本编辑器
+gem 'rails_kindeditor'

@@ -10,7 +10,7 @@
     
 <p>
   <strong>Text:</strong>
-  <%= @article.text %>
+  <%= sanitize(@article.text) %>
 </p>
 
  <% if @article.avatar? %>
