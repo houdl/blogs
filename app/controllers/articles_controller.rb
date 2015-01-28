@@ -13,6 +13,10 @@ class ArticlesController < ApplicationController
     @articles = Article.all.order(" created_at desc").page(params[:page]).per(3)
   end
 
+  def user_article
+    @articles = current_user.articles.order(" created_at desc").page(params[:page]).per(3)
+  end
+
   def create
     @article = current_user.articles.new(article_params)
 

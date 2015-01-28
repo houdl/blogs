@@ -1,10 +1,14 @@
-<h1>User#index</h1>
-<%= current_user.id %>
-<%= current_user.email %>
-<%= image_tag(current_user.avatar_url) %>
+<h1>User_avatar</h1>
 
-<%= form_for current_user, :html => {:multipart => true,}, method: :put do |f| %>
-  <%= f.file_field :avatar %>
-  <%= f.hidden_field :avatar_cache %>
+<%= form_for current_user, :html => {:multipart => true, class: 'form'}, method: :put do |f| %>
+  <div class="form-group">
+    <label>邮箱：</label>
+    <%= current_user.email %>
+  </div>
+  <div class="form-group">
+    <%= image_tag(current_user.avatar_url(:large)) %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache  %>
+  </div>
   <%= f.submit '提交' %>
 <% end %>

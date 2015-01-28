@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   }
 
   resources :articles do
+    collection do
+      get :user_article
+    end
     resources :comments
   end
 
