@@ -11,11 +11,11 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.all.search(params[:q])
-    @articles = @q.result.order(" created_at desc").page(params[:page]).per(3)
+    @articles = @q.result.order(" created_at desc").page(params[:page]).per(5)
   end
 
   def user_article
-    @articles = current_user.articles.order(" created_at desc").page(params[:page]).per(3)
+    @articles = current_user.articles.order(" created_at desc").page(params[:page]).per(5)
   end
 
   def create
