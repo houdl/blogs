@@ -9,6 +9,7 @@
     <div class="row">
       <span class="col-md-7">
         <%= f.kindeditor :text, label: "内容", :simple_mode => true, control_col: "col-md-7", rows: 10 %>
+        <%= error_message_for @article, :text %>
       </span>
     </div>
     <div class="row">

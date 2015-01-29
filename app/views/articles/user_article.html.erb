@@ -1,28 +1,26 @@
-<div class="container">
-  <h1>我的文章</h1>
+<h1>我的文章</h1>
 
-  <%= link_to '新建文章', new_article_path, 'data-no-turbolink' => true %>
-  <table class="table table-hover">
+<%= link_to '新建文章', new_article_path, 'data-no-turbolink' => true %>
+<table class="table table-hover">
+  <tr>
+    <th>标题</th>
+    <th>作者</th>
+    <th>内容</th>
+    <th>创建时间</th>
+    <th>操作</th>
+  </tr>
+
+  <% @articles.each do |article| %>
     <tr>
-      <th>标题</th>
-      <th>作者</th>
-      <th>内容</th>
-      <th>创建时间</th>
-      <th>操作</th>
+      <td><%=link_to article.title, article_path(article) %></td>
+      <td><%= article.user.email %></td>
+      <td><%= sanitize(article.text) %></td>
+      <td><%= article.created_at.to_long %></td>
+      <td><%= link_to '编辑', edit_article_path(article) , 'data-no-turbolink' => true %>
+        <%= link_to '删除', article_path(article),method: :delete, data: {confirm: '你确定要删除吗? '} %></td>
     </tr>
-
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%=link_to article.title, article_path(article) %></td>
-        <td><%= article.user.email %></td>
-        <td><%= sanitize(article.text) %></td>
-        <td><%= article.created_at.to_long %></td>
-        <td><%= link_to '编辑', edit_article_path(article) , 'data-no-turbolink' => true %>
-          <%= link_to '删除', article_path(article),method: :delete, data: {confirm: '你确定要删除吗? '} %></td>
-      </tr>
-    <% end %>
-  </table>
-  <div class="text-center">
-    <%= paginate @articles %>
-  </div>
+  <% end %>
+</table>
+<div class="text-center">
+  <%= paginate @articles %>
 </div>
