@@ -10,8 +10,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @q = Article.all.search(params[:q])
-    @articles = @q.result.order(" created_at desc").page(params[:page]).per(5)
+    @q = Article.all.ransack(params[:q])
+    @articles = @q.result(distinct: true).order(" created_at desc").page(params[:page]).per(5)
   end
 
   def user_article

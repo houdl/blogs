@@ -4,9 +4,10 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.text :text
       t.string :avatar
-      t.integer :user_id
+      t.belongs_to :user, index: true, null: false
 
       t.timestamps
     end
+    add_foreign_key :articles, :users
   end
 end

@@ -1,8 +1,9 @@
 # source 'https://rubygems.org'
+ruby '2.2.2'
 
 source 'https://ruby.taobao.org/'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '>=4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -45,7 +46,7 @@ gem 'pry-nav'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~>3.0.1'
 
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 
 #图片上传
 gem 'carrierwave'
@@ -64,7 +65,11 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n'
 
 #搜索
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'ransack'
 
 #福文本编辑器
 gem 'rails_kindeditor'
+
+gem 'mysql2'
+
+gem 'database_cleaner'
