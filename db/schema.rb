@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140910025030) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "username",               limit: 255, default: "", null: false
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "avatar",                 limit: 255
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140910025030) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
